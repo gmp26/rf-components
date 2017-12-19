@@ -50,15 +50,15 @@
   {:builds
    [
     {:id           "devcards"
-     :source-paths ["src/cljs" "cards"]
+     :source-paths ["src/cljs" "src/cards"]
      :figwheel     {:devcards true}
-     :compiler     {:main                 hello-reframe.devcards-test
+     :compiler     {:main                 demos.start-ui
                     :optimizations        :none
                     :asset-path           "devcards/tests/out"
                     :output-dir           "resources/public/devcards/tests/out"
                     :output-to            "resources/public/devcards/tests/all-tests.js"
                     :source-map-timestamp true
-                    :preloads             [devtools.prel
+                    :preloads             [devtools.preload
                                            re-frisk.preload]}}
 
     {:id           "dev"

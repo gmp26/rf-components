@@ -1,4 +1,4 @@
-(ns rf-components.devcards-test
+(ns test.libs
   (:require
     [reagent.core :as r]
     [cljs.test :refer [testing is]]
