@@ -6,6 +6,7 @@
                  [devcards "0.2.4" :exclusions [cljsjs/react]]
                  [figwheel-sidecar "0.5.14"]
                  [re-frisk "0.5.3"]
+                 [cljs-css-modules "0.2.1"]
                  ]
 
   :plugins [[lein-cljsbuild "1.1.7"]
