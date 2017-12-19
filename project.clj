@@ -1,4 +1,4 @@
-(defproject hello-reframe "0.1.0-SNAPSHOT"
+(defproject rf-components "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.9.946"]
                  [reagent "0.7.0"]
@@ -14,7 +14,7 @@
 
   :min-lein-version "2.5.3"
 
-  :source-paths ["src/clj" "src/cljc" "src/cljs" "script"]
+  :source-paths ["src/clj" "src/cljc" "src/cljs" "src/cards" "script"]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
                                     "test/js"]
