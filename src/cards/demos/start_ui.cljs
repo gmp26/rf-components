@@ -1,7 +1,7 @@
 (ns demos.start-ui
   (:require [devcards.core :refer [start-devcard-ui!]]
             [demos.reagent]
-            [demos.db :refer [default-db]]
+            [test.db :refer [default-db]]
             [re-frame.core :as re-frame]
             ))
 

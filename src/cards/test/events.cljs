@@ -1,6 +1,6 @@
-(ns demos.events
+(ns test.events
   (:require [re-frame.core :refer [reg-event-db reg-event-fx]]
-            [demos.db :refer [default-db]]))
+            [test.db :refer [default-db]]))
 
 (reg-event-db
   ::initialize-db

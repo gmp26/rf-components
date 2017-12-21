@@ -1,4 +1,4 @@
-(ns demos.db)
+(ns test.db)
 
 (def default-db
   {:name "test-fixture"
