@@ -1,5 +1,4 @@
-(ns demos.db
-  (:require [reagent.core :refer [ratom]]))
+(ns demos.db)
 
 (def default-db
   {:name "test-fixture"

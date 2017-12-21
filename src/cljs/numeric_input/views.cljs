@@ -28,36 +28,37 @@
       (dispatch :update-input key (str val-3))
       )))
 
-(defn empty-to-nil [val] (if (= val "") nil val))
-(defn parse-or-min [min val] ((fnil js/parseInt (str min)) val))
-(defn error-or-step [step val] (if (error? val) "" (+ step val)))
-(defn clamp [min max val] (if (< val min) min (if (> val max) max val)))
+(comment
+  (defn empty-to-nil [val] (if (= val "") nil val))
+  (defn parse-or-min [min val] ((fnil js/parseInt (str min)) val))
+  (defn error-or-step [step val] (if (error? val) "" (+ step val)))
+  (defn clamp [min max val] (if (< val min) min (if (> val max) max val)))
 
-(defn chain [min max step val]
-  (->> val
-       (empty-to-nil)
-       ((partial parse-or-min min))
-       ((partial error-or-step step))
-       ;((partial clamp min max))
-       ))
-
-(defn handle-inc* [key val min max step e]
-  (when (not= 0 step)
-
-    (.stopPropagation (.. e -nativeEvent))
-    (.preventDefault (.. e -nativeEvent))
+  (defn chain [min max step val]
     (->> val
-         (#((fnil js/parseInt (str min)) %))
-         )
-    (let [val-1 (if (= val "")
-                  (if (pos? step)
-                    (dec min)
-                    (if (neg? step) (inc max) ""))
-                  (js/parseInt val))
-          val-2 (if (error? val-1) "" (+ step val-1))
-          val-3 (if (< val-2 min) min (if (> val-2 max) max val-2))]
-      (dispatch :update-input key (str val-3))
-      )))
+         (empty-to-nil)
+         ((partial parse-or-min min))
+         ((partial error-or-step step))
+         ;((partial clamp min max))
+         ))
+
+  (defn handle-inc* [key val min max step e]
+    (when (not= 0 step)
+
+      (.stopPropagation (.. e -nativeEvent))
+      (.preventDefault (.. e -nativeEvent))
+      (->> val
+           (#((fnil js/parseInt (str min)) %))
+           )
+      (let [val-1 (if (= val "")
+                    (if (pos? step)
+                      (dec min)
+                      (if (neg? step) (inc max) ""))
+                    (js/parseInt val))
+            val-2 (if (error? val-1) "" (+ step val-1))
+            val-3 (if (< val-2 min) min (if (> val-2 max) max val-2))]
+        (dispatch :update-input key (str val-3))
+        ))))
 
 
 (defn stop-timer!
